@@ -1,25 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Akın Ayaz</title>
-<meta name="description" content="Akın Ayaz — artist based in Eskişehir, Türkiye.">
-<meta property="og:title" content="Akın Ayaz">
-<meta property="og:description" content="Akın Ayaz — artist based in Eskişehir, Türkiye.">
-<link rel="stylesheet" href="assets/style.css?v=2">
+<meta name="description" content="Akın Ayaz — görsel sanatçı, Eskişehir. Resim, fotoğraf, video ve yerleştirme.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/v3.css?v=1">
 </head>
-<body>
-<header class="site-header">
-  <a class="brand" href="index.html">Akın Ayaz</a>
-  <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">Menu</button>
-  <nav class="nav"><a href="index.html" class="active">Home</a><a href="works.html">Works</a><a href="about.html">About</a><a href="contact.html">Contact</a>
-    <div class="social"><a href="https://www.instagram.com/akinaayaz/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.8.4-1.2.8-.4.4-.6.7-.8 1.2-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.8.8 1.2.4.4.7.6 1.2.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.8-.4 1.2-.8.4-.4.6-.7.8-1.2.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.8-.8-1.2-.4-.4-.7-.6-1.2-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.4a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8zm0 7.2a2.8 2.8 0 1 0 0-5.6 2.8 2.8 0 0 0 0 5.6zm5.6-7.4a1 1 0 1 1-2.1 0 1 1 0 0 1 2.1 0z"/></svg></a></div>
-  </nav>
+<body class="is-home">
+
+<header class="bar">
+  <a class="brand" href="#">Akın Ayaz</a>
+  <nav class="nav" id="nav" aria-label="Bölümler"></nav>
+  <div class="bar-r">
+    <span class="lang"><button type="button" data-l="tr">TR</button><button type="button" data-l="en">EN</button></span>
+    <button type="button" class="menu-btn" id="menu-btn" aria-label="Menü"><span></span><span></span></button>
+  </div>
 </header>
-<main class="hero">
-  <video src="assets/hero.mp4" poster="assets/hero-poster.jpg" autoplay muted loop playsinline preload="auto"></video>
+
+<!-- giriş -->
+<main class="page page-home" data-page="home">
+  <div class="stage" id="stage"></div>
+  <h1 class="home-title" id="home-title">Akın<br><i>Ayaz</i></h1>
+  <div class="hud">
+    <p class="hud-cap" id="home-cap"></p>
+    <p class="hud-hint" data-i="scroll">Kaydır</p>
+    <p class="hud-count" id="home-count"></p>
+  </div>
 </main>
-<footer class="site-footer"><span>© 2026 Akın Ayaz</span><span>Eskişehir, Türkiye</span></footer>
+
+<!-- liste sayfaları JS ile doluyor -->
+<main class="page page-index" data-page="resim"><div class="wrap" id="p-resim"></div></main>
+<main class="page page-index" data-page="arsiv"><div class="wrap" id="p-arsiv"></div></main>
+<main class="page page-index" data-page="fotograf"><div class="wrap" id="p-fotograf"></div></main>
+<main class="page page-index" data-page="projeler"><div class="wrap" id="p-projeler"></div></main>
+<main class="page page-index" data-page="sergiler"><div class="wrap" id="p-sergiler"></div></main>
+
+<!-- atölye -->
+<main class="page page-studio" data-page="atolye">
+  <div class="wrap studio">
+    <figure class="studio-img"><img src="assets/w/atolye-1.jpg" alt=""></figure>
+    <div class="studio-text">
+      <p class="eyebrow" data-i="studio_cap">Atölye, Eskişehir</p>
+      <h1 data-i="studio">Atölye</h1>
+      <p data-i="studio_note"></p>
+    </div>
+  </div>
+</main>
+
+<!-- hakkında -->
+<main class="page page-about" data-page="hakkinda">
+  <div class="wrap">
+    <div class="page-head"><h1 data-i="about">Hakkında</h1></div>
+    <section class="sec">
+      <div class="sec-l"><figure class="portrait"><img src="assets/w/portrait.jpg" alt="Akın Ayaz" loading="lazy"></figure></div>
+      <div class="sec-r bio">
+      <div lang="tr">
+        <p>1999 yılında Ankara'da doğan Akın Ayaz, Eskişehir'de yaşıyor ve çalışıyor. Sokaktan ve duvar resminden gelen bir üretim pratiğinin ardından Bilkent Üniversitesi Bileşik Sanatlar'da, ardından Anadolu Üniversitesi Güzel Sanatlar Fakültesi Heykel Bölümü'nde eğitim aldı. Resim, fotoğraf, video ve yerleştirme arasında, sezgisel ve araştırmacı bir süreçle çalışıyor. 2021–2026 yılları arasında Eskişehir'de Co-Operative Art kolektifini yürüttü.</p>
+      </div>
+      <div lang="en">
+        <p>Born in Ankara in 1999, Akın Ayaz lives and works in Eskişehir. Coming from a practice rooted in the street and in mural painting, he studied Compound Arts at Bilkent University and then Sculpture at the Faculty of Fine Arts, Anadolu University. He works between painting, photography, video and installation through an intuitive, research-driven process. From 2021 to 2026 he ran the Co-Operative Art collective in Eskişehir.</p>
+      </div>
+      </div>
+    </section>
+    <section class="sec">
+      <div class="sec-l"><h2 data-i="statement">Sanatçı beyanı</h2></div>
+      <div class="sec-r text">
+    <div lang="tr">
+      <p>Pratiğim resim, fotoğraf, video ve yerleştirme arasında, sezgisel ve araştırmacı bir süreçle şekilleniyor. Algının kırılganlaştığı, tanıdık olanın netliğini yitirdiği anlarla ilgileniyorum. Sokaktan, duvar resminden gelen bir üretim geçmişim var; sprey boyayı ve büyük ölçeği oradan tanıyorum. Heykel eğitimim ve kamusal alandaki üretimlerim sayesinde buluntu nesne, yerleştirme ve kinetik mekanizmalarla mekâna özgü işler üretiyorum.</p>
+      <p>Son yıllarda imgeyi bulanıklaştırmaya odaklanıyorum. Bunu yalnızca görsel bir tercih olarak değil, görmeye ve tanımaya duyulan güveni kesintiye uğratan bir yöntem olarak görüyorum. Figür ne tamamen görünür ne de bütünüyle kaybolur; bir eşik hâlinde kalır. Bugün kâğıt üzerine sprey boya ve toz pastelle, tek renkli yüzeylerde çalışıyorum.</p>
+      <p>Fotoğraf ve video bu pratiğin ayrılmaz parçası. Yıllardır çektiğim fotoğraflar bir arşive dönüştü: buzlu camın, perdenin, karşı ışığın ardında kaybolan figürler, gündelik nesnelerin gözden kaçan ayrıntıları. Bu arşiv hem kendi başına bir üretim alanı hem de resimlerimin doğrudan kaynağı. Açık anlatılar kurmak yerine izleyiciyi kısa bir süreliğine emin olamadığı bir alanda tutmayı önemsiyorum.</p>
+    </div>
+    <div lang="en">
+      <p>My practice takes shape between painting, photography, video and installation, through an intuitive, research-driven process. I am interested in moments when perception becomes fragile and the familiar loses its clarity. My background lies in the street and in mural painting; that is where I came to know spray paint and large scale. Through my training in sculpture and my work in public space, I make site-specific works with found objects, installation and kinetic mechanisms.</p>
+      <p>In recent years I have focused on blurring the image. I see this not merely as a visual choice but as a method that interrupts our trust in seeing and recognising. The figure is neither fully visible nor entirely lost; it remains at a threshold. Today I work on monochrome surfaces, with spray paint and soft pastel on paper.</p>
+      <p>Photography and video are an inseparable part of this practice. Over the years my photographs have become an archive: figures vanishing behind frosted glass, curtains and backlight, overlooked details of everyday objects. This archive is both a field of work in its own right and a direct source for my paintings. Rather than building explicit narratives, I want to hold the viewer, for a brief moment, in a space where they cannot be sure.</p>
+    </div>
+      </div>
+    </section>
+    <section class="sec" id="arastirma">
+      <div class="sec-l"><h2><span lang="tr">Bulanık · süren araştırma</span><span lang="en">Blur · ongoing research</span></h2></div>
+      <div class="sec-r text">
+    <div lang="tr">
+      <p class="q">Bir imge ne kadar silinir, örtülür ya da uzaklaştırılırsa hâlâ tanınır? Tanımanın bittiği, tekinsizliğin başladığı eşik nerede?</p>
+      <p>Son dönem resimlerimde farklı malzemelerle imgeleri bulanıklaştırarak tanıdık mekânları belirsiz bir hâle sokuyorum. Mekân ve imge kaynaklarım hafızamda olanlar ve çektiğim fotoğraflar. Araştırmanın bir sonraki aşamasında bulanıklığı bir yöntem sözlüğü gibi çıkarmak istiyorum: spreyin mesafesi ve basıncı, toz pastelin sürülmesi ve silinmesi, katman kurup silme, yarı saydam kumaşın ardında kalan imge, buğulu ya da zımparalanmış cam, arkadan ışık, kamerada odak kaybı. Ardından bu yöntemleri mekâna taşımak: ışık, kinetik düzenekler, cam ve nesnelerle, izleyicinin bir vitrine bakar gibi baktığı, imgenin ancak belli bir mesafeden ya da açıdan netleştiği bir yerleştirme.</p>
+    </div>
+    <div lang="en">
+      <p class="q">How far can an image be erased, veiled or pushed away and still be recognised? Where is the threshold at which recognition ends and the uncanny begins?</p>
+      <p>In my recent paintings I blur images with different materials, unsettling familiar spaces. My sources for spaces and images are what I hold in memory and the photographs I take. In the next stage of the research I want to set out blur as a vocabulary of methods: the distance and pressure of the spray, soft pastel applied and wiped away, layers built up and erased, an image left behind semi-transparent fabric, misted or sanded glass, backlight, loss of focus in the camera. Then to carry these methods into space: with light, kinetic devices, glass and objects, an installation that the viewer looks at as if into a shop window, where the image comes into focus only from a certain distance or angle.</p>
+    </div>
+      </div>
+    </section>
+    <section class="sec">
+      <div class="sec-l"><h2 data-i="cv">Özgeçmiş</h2></div>
+      <div class="sec-r cv">
+    <div class="cv-col">
+      <h3 data-i="s_solo">Kişisel sergi</h3>
+      <ul class="cv-list" data-shows="s_solo">
+        <li><span>2025</span><div lang="tr">2A Sınıfından — Fikret Otyam Sanat Merkezi, Ankara</div><div lang="en">From Class 2A — Fikret Otyam Art Centre, Ankara</div></li>
+      </ul>
+      <h3 data-i="s_group">Seçili karma sergiler</h3>
+      <ul class="cv-list" data-shows="s_group">
+        <li><span>2026</span><div lang="tr">Anna Laudel Open Call seçkisi, Banyodaki Fil Dişi serisi — İstanbul</div><div lang="en">Anna Laudel Open Call selection, Ivory in the Bathroom series — Istanbul</div></li>
+        <li><span>2026</span><div lang="tr">Çocuk Olmanın Şarkısı — Fikret Otyam Sanat Merkezi, Ankara</div><div lang="en">The Song of Being a Child — Fikret Otyam Art Centre, Ankara</div></li>
+        <li><span>2025</span><div lang="tr">Soil To Surface — The Dreaming Seed, Barın Han, İstanbul</div><div lang="en">Soil To Surface — The Dreaming Seed, Barın Han, Istanbul</div></li>
+        <li><span>2024</span><div lang="tr">Lokal01 — Eldem Sanat Alanı, Eskişehir</div><div lang="en">Lokal01 — Eldem Art Space, Eskişehir</div></li>
+        <li><span>2024</span><div lang="tr">Şey ve Bel Altı — Co-Operative Art, Eskişehir</div><div lang="en">Şey (The Thing) and Bel Altı (Below the Belt) — Co-Operative Art, Eskişehir</div></li>
+        <li><span>2023</span><div lang="tr">Sonsuzluğun İzinde — EKAV-ARTIST Yeni Jenerasyon, Ekavart Gallery</div><div lang="en">On the Trail of Eternity — EKAV-ARTIST New Generation, Ekavart Gallery</div></li>
+        <li><span>2022</span><div lang="tr">Rotasyon Sergisi — Darağaç Kolektif, İzmir</div><div lang="en">Rotation Exhibition — Darağaç Collective, Izmir</div></li>
+        <li><span>2022</span><div lang="tr">ARA — Co-Operative Art, Eskişehir</div><div lang="en">ARA (Between) — Co-Operative Art, Eskişehir</div></li>
+        <li><span>2021</span><div lang="tr">Erdemir Çelik ve Yaşam Heykel Yarışması Sergisi — Tophane-i Amire, İstanbul</div><div lang="en">Erdemir Steel and Life Sculpture Competition Exhibition — Tophane-i Amire, Istanbul</div></li>
+      </ul>
+      <h3 data-i="s_res">Rezidans ve sanatçı programları</h3>
+      <ul class="cv-list" data-shows="s_res">
+        <li><span>2025</span><div lang="tr">Bir Bağ Meselesi — BozcaadaGathering sanatçı programı ve sergisi, The Urban Arts, Bozcaada</div><div lang="en">A Matter of Bond — BozcaadaGathering artist programme and exhibition, The Urban Arts, Bozcaada</div></li>
+        <li><span>2024</span><div lang="tr">ALAN PA Genç Sanatçı Misafir Programı — İzmir</div><div lang="en">ALAN PA Young Artist Guest Programme — Izmir</div></li>
+      </ul>
+    </div>
+    <div class="cv-col">
+      <h3 data-i="education">Eğitim</h3>
+      <ul class="cv-list">
+        <li><span>2021–</span><div lang="tr">Anadolu Üniversitesi Güzel Sanatlar Fakültesi, Heykel Bölümü, Eskişehir</div><div lang="en">Anadolu University, Faculty of Fine Arts, Department of Sculpture, Eskişehir</div></li>
+        <li><span>2019–21</span><div lang="tr">Bilkent Üniversitesi, Bileşik Sanatlar, Ankara</div><div lang="en">Bilkent University, Compound Arts, Ankara</div></li>
+      </ul>
+      <h3><span lang="tr">İnisiyatif</span><span lang="en">Initiative</span></h3>
+      <ul class="cv-list">
+        <li><span>2021–26</span><div lang="tr">Co-Operative Art / Co-Operative Collective, Eskişehir — kurucu. Hilmi Usta Pasajı'nda stüdyo; kamusal alan odaklı, disiplinlerarası etkinlikler (ARA, MERKÜR, POTANS-I YEL, Bağ(ımsız) Bozumu).</div><div lang="en">Co-Operative Art / Co-Operative Collective, Eskişehir — founder. Studio in Hilmi Usta Arcade; interdisciplinary events focused on public space (ARA, MERKÜR, POTANS-I YEL, Bağ(ımsız) Bozumu).</div></li>
+      </ul>
+      <h3><span lang="tr">Diğer deneyim</span><span lang="en">Other experience</span></h3>
+      <ul class="cv-list cv-plain">
+        <li><span>—</span><div lang="tr">Buluntu nesneyle heykel üretimi</div><div lang="en">Sculpture with found objects</div></li>
+        <li><span>—</span><div lang="tr">Sergi ve sahne alanı planlaması ve kurulumu</div><div lang="en">Exhibition and stage design and installation</div></li>
+      </ul>
+    </div>
+  
+      </div>
+    </section>
+    <section class="sec">
+      <div class="sec-l"><h2 data-i="contact">İletişim</h2></div>
+      <div class="sec-r contact">
+        <a class="mail" href="mailto:akinayazstudio@gmail.com">akinayazstudio@gmail.com</a>
+        <a href="tel:+905466231999">+90 546 623 19 99</a>
+        <a href="https://instagram.com/akinaayaz" target="_blank" rel="noopener">instagram.com/akinaayaz</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot" id="foot">
+  <div class="wrap foot-in">
+    <span>© Akın Ayaz</span>
+    <span><a href="mailto:akinayazstudio@gmail.com">akinayazstudio@gmail.com</a> · <a href="https://instagram.com/akinaayaz" target="_blank" rel="noopener">@akinaayaz</a></span>
+    <a href="#" class="foot-next" id="foot-next"></a>
+  </div>
+</footer>
+
+<!-- eser penceresi -->
+<div class="lb" id="lb" aria-hidden="true" role="dialog">
+  <div class="lb-stage">
+    <div class="lb-media" id="lb-media"></div>
+    <div class="lb-thumbs" id="lb-thumbs"></div>
+  </div>
+  <aside class="lb-side">
+    <div class="lb-top"><span class="lb-count" id="lb-count"></span><button type="button" class="lb-x" id="lb-x" data-i="close">Kapat</button></div>
+    <div class="lb-meta" id="lb-meta"></div>
+    <div class="lb-nav"><button type="button" id="lb-prev">← <span data-i="prev">Önceki</span></button><button type="button" id="lb-next"><span data-i="next">Sonraki</span> →</button></div>
+  </aside>
+</div>
+
+<script src="assets/data.js?v=3"></script>
+<script src="assets/v3.js?v=1"></script>
 </body>
 </html>
